@@ -1,5 +1,4 @@
 import data from './menu.json'
+import {from, of} from 'rxjs'
 
-export const getMenu = () => {
-    return data
-}
+export const getMenu = () => of(data)

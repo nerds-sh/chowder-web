@@ -7,7 +7,7 @@ export const getMenu = actions$ => actions$
     .pipe(ofType(actions.attempt))
     .pipe(mergeMap(execute))
 
-const execute = () => of(getMenuRepository())
+const execute = () => getMenuRepository()
     .pipe(mergeMap(success))
     .pipe(catchError(failure))
 

@@ -10,7 +10,7 @@ const attempt = (state, { payload }) => ({ ...state, attempt: payload })
 
 const success = (state, { payload }) => ({ ...state, data: payload })
 
-const failure = (state, { payload }) => ({...state, errors: payload})
+const failure = (state, { payload }) => ({ ...state, errors: payload })
 
 export const getMenuSlice = createSlice({
     initialState,
@@ -22,4 +22,4 @@ export const getMenuSlice = createSlice({
     },
 })
 
-export const actions = getMenuSlice.actions
+export const { actions } = getMenuSlice

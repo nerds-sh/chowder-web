@@ -1,23 +1,21 @@
 {
   "data" : {
-    "breakfast" : {
-      "food": [
-        {
-          "name": "egg sandwich",
-          "details": "Meat Ball, Mie",
-          "price": "$30"
-        },
-        {
-          "name": "egg sandwich",
-          "details": "Meat Ball, Mie",
-          "price": "$30"
-        },
-        {
-          "name": "egg sandwich",
-          "details": "Meat Ball, Mie",
-          "price": "$30"
-        }
-      ]
-    }
+    "food": [
+      {
+        "name": "egg sandwich",
+        "details": "Meat Ball, Mie",
+        "price": "$30"
+      },
+      {
+        "name": "egg sandwich",
+        "details": "Meat Ball, Mie",
+        "price": "$30"
+      },
+      {
+        "name": "egg sandwich",
+        "details": "Meat Ball, Mie",
+        "price": "$30"
+      }
+    ]
   }
 }

@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from '@reduxjs/toolkit'
+import { applyMiddleware, createStore } from 'redux'
 import { createEpicMiddleware } from 'redux-observable'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { rootReducer } from './reducers'

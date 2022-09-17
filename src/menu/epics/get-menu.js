@@ -11,12 +11,6 @@ const execute = () => of(getMenuRepository())
     .pipe(mergeMap(success))
     .pipe(catchError(failure))
 
-const success = payload => {
-    console.log('p', payload)
-    return of(actions.success(payload))
-}
+const success = payload => of(actions.success(payload))
 
-const failure = payload => {
-    console.log('a', payload)
-    return of(actions.failure(payload))
-}
+const failure = payload => of(actions.failure(payload))

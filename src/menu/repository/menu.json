@@ -1,6 +1,5 @@
 {
-  "data" : {
-    "food": [
+  "data" : [
       {
         "name": "egg sandwich",
         "details": "Meat Ball, Mie",
@@ -17,5 +16,4 @@
         "price": "$30"
       }
     ]
-  }
 }

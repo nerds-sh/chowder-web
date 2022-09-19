@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     attempt: null,
-    data: undefined,
+    data: null,
     errors: null
 }
 
-const attempt = (state, { payload }) => ({ ...state, attempt: payload })
+const attempt = (state, { payload }) => ({...state, attempt: payload})
 
 const success = (state, { payload }) => ({ ...state, data: payload })
 

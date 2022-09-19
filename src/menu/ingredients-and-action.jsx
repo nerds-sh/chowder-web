@@ -3,7 +3,7 @@ export const IngredientsAndAction = ({ item }) => <div className="row align-item
         <p>{item.details}</p>
     </div>
     <div className="col-4">
-        <h4 className="text-muted menu-price">button</h4>
+        <button type='button'> 3D model</button>
     </div>
 </div>
 

@@ -4,8 +4,8 @@ import { actions } from '../slices/get-menu'
 
 export const useGetMenu = () => {
     const dispatch = useDispatch()
-
-    return useEffect(() => {
+    
+    useEffect(() => {
         dispatch(actions.attempt())
     }, [dispatch])
 }

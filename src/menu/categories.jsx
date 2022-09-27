@@ -9,7 +9,6 @@ const flexContainer = {
 export const Categories = () => {
     const categories = useCategories()
 
-    console.log('cate', categories)
     return <div style={{justifyContent: 'center'}} className="row">
         <List style={flexContainer} class="col-lg-4 menu-wrap">
             {

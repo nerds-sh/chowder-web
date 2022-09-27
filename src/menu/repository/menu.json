@@ -3,17 +3,20 @@
       {
         "name": "egg sandwich",
         "details": "Meat Ball, Mie",
-        "price": "$30"
+        "price": "$30",
+        "category": "breakfast"
       },
       {
         "name": "egg sandwich",
         "details": "Meat Ball, Mie",
-        "price": "$30"
+        "price": "$30",
+        "category": "breakfast"
       },
       {
         "name": "egg sandwich",
         "details": "Meat Ball, Mie",
-        "price": "$30"
+        "price": "$30",
+        "category": "dinner"
       }
     ]
 }

@@ -1,8 +1,9 @@
 import { Menu } from './menu'
+import { Home } from './home'
 
 export const allRoutes = [{
         path: '/',
-        element: Menu,
+        element: Home,
     },
     {
         path: '/menu',

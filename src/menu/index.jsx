@@ -8,7 +8,7 @@ import { Categories } from './categories'
 
 export const Menu = () => {
     
-    return <div className="section-content">
+    return <div className="section-content" style={{ backgroundColor: 'gainsboro' }}>
         <Behaviour />
         <Header />
         <Categories />

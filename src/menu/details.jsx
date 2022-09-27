@@ -6,7 +6,7 @@ export const Details = ({ category }) => {
     const menu = useMenu()
     const categoryMenu = menu.filter(item => item.category === category)
 
-    return categoryMenu.map(item => <div className="menus d-flex align-items-center">
+    return categoryMenu.map(item => <div className="menus d-flex align-items-center" style={{ backgroundColor: 'lightgreen', paddingTop: 15 }}>
         <div className="menu-img rounded-circle">
             <img className="img-fluid" src="img/breakfast-1.jpg" alt=""/>
         </div>

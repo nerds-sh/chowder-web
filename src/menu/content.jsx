@@ -8,13 +8,10 @@ export const Content = () => {
     return <div className="row" style={{justifyContent: 'center'}}>
         <div className="col-lg-4 menu-wrap">
             {
-                categories.map(category => {
-                    console.log('cccc', category)
-                    return <>
+                categories.map(category => <>
                         <Category category={category} />
                         <Details category={category} />
-                    </>
-                })
+                    </>)
             }
         </div>
     </div>

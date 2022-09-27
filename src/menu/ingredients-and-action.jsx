@@ -1,9 +1,9 @@
-export const IngredientsAndAction = ({ item }) => <div className="row align-items-start">
+import { Button } from '@material-ui/core'
+
+export const IngredientsAndAction = ({ item }) => <div className="row">
     <div className="col-8">
         <p>{item.details}</p>
     </div>
-    <div className="col-4">
-        <button type='button'> 3D model</button>
-    </div>
+    <Button variant="outlined">See 3D</Button>
 </div>
 

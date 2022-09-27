@@ -6,7 +6,7 @@ export const NameAndPrice = ({ item }) => {
         <div className="col-8">
             <h4>{item.name}</h4>
         </div>
-        <div className="col-4">
+        <div style={{ marginLeft: '7%' }}>
             <h4 className="text-muted menu-price">{item.price}</h4>
         </div>
     </div>

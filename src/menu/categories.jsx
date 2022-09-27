@@ -1,4 +1,4 @@
-import { List, ListItem } from '@material-ui/core'
+import {Button, List, ListItem} from '@material-ui/core'
 import { useCategories } from './hooks/use-categories'
 
 const flexContainer = {
@@ -12,10 +12,13 @@ export const Categories = () => {
 
     return <div style={{justifyContent: 'center' }} className="row">
         <List style={flexContainer} class="col-lg-4 menu-wrap">
-            {
-                categories.map(category => <ListItem style={{display: 'inline-block', width: 'auto'}}>
-                    {category}</ListItem>)
-            }
+        {
+            categories.map(category => <ListItem style={{display: 'inline-block', width: 'auto'}}>
+                    <Button onClick={() => document.getElementById(`${category}`).scrollIntoView({behavior: "smooth"})}>
+                        {category}
+                    </Button>
+                </ListItem>)
+        }
         </List>
     </div>
 }

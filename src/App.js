@@ -1,16 +1,16 @@
 import './App.css'
-import { Menu } from './menu'
-import {configureStore} from './configure-store'
+import { configureStore } from './configure-store'
 import {Provider} from 'react-redux'
+import { Routes } from './routes'
 
 function App() {
   return (
     <div className="App">
         <Provider store={configureStore()}>
-            <Menu />
+            <Routes />
         </Provider>
     </div>
   );
 }
 
-export default App;
+export default App

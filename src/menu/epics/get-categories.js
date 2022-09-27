@@ -1,13 +1,13 @@
 import { ofType } from 'redux-observable'
 import { catchError, mergeMap, of } from 'rxjs'
-import { actions } from '../slices/get-menu'
+import { actions } from '../slices/get-categories'
 import { repository } from '../repository'
 
-export const getMenu = actions$ => actions$
+export const getCategories = actions$ => actions$
     .pipe(ofType(actions.attempt))
     .pipe(mergeMap(execute))
 
-const execute = () => repository.getMenu()
+const execute = () => repository.getCategories()
     .pipe(mergeMap(success))
     .pipe(catchError(failure))
 

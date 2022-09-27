@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { getMenu } from './menu/slices'
+import { getFood } from './menu/slices'
 
 export const rootReducer = combineReducers({
-    getMenu
+    getFood
 })

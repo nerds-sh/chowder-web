@@ -1,4 +1,4 @@
-import data from './menu.json'
-import {from, of} from 'rxjs'
+import { getCategories } from './get-categories'
+import { getMenu } from './get-menu'
 
-export const getMenu = () => of(data)
+export const repository = { getMenu, getCategories }

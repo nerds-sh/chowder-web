@@ -1,5 +1,6 @@
 import { Menu } from './menu'
 import { Home } from './home'
+import { Ar } from './ar'
 
 export const allRoutes = [{
         path: '/',
@@ -8,5 +9,9 @@ export const allRoutes = [{
     {
         path: '/menu',
         element: Menu,
+    },
+    {
+        path: '/ar',
+        element: Ar
     }
 ]

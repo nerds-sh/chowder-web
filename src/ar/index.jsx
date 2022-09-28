@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import '../App.css'
 import {
     ArToolkitProfile,
     ArToolkitSource,
@@ -121,9 +122,15 @@ export const Ar = () => {
                 })
             })
         });
+        const html = document.getElementsByTagName('html')[0]
+        html.classList.add('stop-scrolling')
+        
+        return () => {
+            html.classList.remove('stop-scrolling')
+        } 
     }, [])
 
     return <div
-        style={{width: "800px", height: "800px"}}
+        style={{width: "800px", height: "800px" }}
     />
 }

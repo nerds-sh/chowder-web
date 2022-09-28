@@ -107,6 +107,7 @@ export const Ar = () => {
             scene.add(gltf.scene)
             onRenderFcts.push(() => {
                 renderer.render(scene, camera);
+                arToolkitContext && onResize()
             })
 
             let lastTimeMsec = null
@@ -119,7 +120,6 @@ export const Ar = () => {
                     onRenderFct(deltaMsec / 1000, nowMsec / 1000)
                 })
             })
-
         });
     }, [])
 

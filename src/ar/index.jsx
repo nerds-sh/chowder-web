@@ -14,7 +14,7 @@ export const Ar = () => {
     let loader = new GLTFLoader();
 
     useEffect(() => {
-        loader.load('./assets/scene.gltf', (gltf) => {
+        loader.load('./assets/scene.glb', (gltf) => {
             ArToolkitContext.baseURL = './'
             const renderer = new THREE.WebGLRenderer({
                 alpha: true
@@ -103,9 +103,40 @@ export const Ar = () => {
 
             const light = new THREE.AmbientLight( 0xFFFFFF ); 
             scene.add( light );
-
-            gltf.scene.scale.set(0.05, 0.05, 0.05)
+            let clientX = 0, clientY = 0
+            let deltaX, deltaY
+            gltf.scene.scale.set(0.1, 0.1, 0.1)
             scene.add(gltf.scene)
+            
+            let startX = 0, startY = 0
+            let isMoving = false
+            
+            window.addEventListener("touchstart", (e) => {
+               startX = e.changedTouches[0].clientX
+               startY = e.changedTouches[0].clientY
+               isMoving = true 
+            })
+            
+            window.addEventListener("touchmove", (e) => {
+                deltaX = e.changedTouches[0].clientX 
+                deltaY = e.changedTouches[0].clientY 
+                if(isMoving) {
+                    gltf.scene.rotation.z = clientX + (gltf.scene.rotation.z + deltaX - startX) / 200
+                    gltf.scene.rotation.x = clientY + (clientY + gltf.scene.rotation.x + deltaY - startY) / 200
+                }
+            }) 
+            
+            window.addEventListener("touchend", () => {
+                clientX = gltf.scene.rotation.z
+                clientY = gltf.scene.rotation.x
+                
+                isMoving = false
+            })
+            
+            onRenderFcts.push(() =>{
+                
+            })
+            
             onRenderFcts.push(() => {
                 renderer.render(scene, camera);
                 arToolkitContext && onResize()
@@ -122,13 +153,14 @@ export const Ar = () => {
                 })
             })
         });
+        
         const html = document.getElementsByTagName('html')[0]
         html.classList.add('stop-scrolling')
         
         return () => {
             html.classList.remove('stop-scrolling')
         } 
-    }, [])
+    }, [loader])
 
     return <div
         style={{width: "800px", height: "800px" }}

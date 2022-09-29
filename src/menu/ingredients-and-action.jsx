@@ -5,10 +5,10 @@ export const IngredientsAndAction = ({ item }) => {
     const { restaurantName } = useParams()
     
     return <div className="row">
-        <div className="col-8">
-            <p>{item.details}</p>
+        <div className="col-6" style={{width: 30}}>
+            <p>{item.ingredients}</p>
         </div>
-        <Button variant="outlined" component={Link} to={`/${restaurantName}/ar/${item.name.toLowerCase()}`}>See 3D</Button>
+        <Button variant="outlined" style={{height: 40}} component={Link} to={`/${restaurantName}/ar/${item.name.toLowerCase()}`}>See 3D</Button>
     </div>;
 }
 

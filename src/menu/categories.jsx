@@ -1,25 +1,29 @@
-import {Button, List, ListItem} from '@material-ui/core'
+import {Button, List, ListItem, ButtonGroup, Box} from '@material-ui/core'
 import { useCategories } from './hooks/use-categories'
 
 const flexContainer = {
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20,
     overflow: 'auto',
     whiteSpace: 'nowrap',
-    backgroundColor: 'lightgray'
+    backgroundColor: 'lightgray',
 }
 
 export const Categories = () => {
     const categories = useCategories()
     console.log('categoroies', categories)
 
-    return <div style={{justifyContent: 'center' }} className="row">
-        <List style={flexContainer} class="col-lg-4 menu-wrap">
+    return <div>
+        <Box sx={flexContainer}>
+            <ButtonGroup variant="text" aria-label="text button group">
         {
-            categories.map(category => <ListItem style={{display: 'inline-block', width: 'auto'}}>
-                    <Button onClick={() => document.getElementById(`${category.name}`).scrollIntoView({behavior: "smooth"})}>
+            categories.map(category =>
+                    <button className="btn shadow-none" onClick={() => document.getElementById(`${category.name}`).scrollIntoView({behavior: "smooth"})}>
                         {category.name}
-                    </Button>
-                </ListItem>)
+                    </button>)
         }
-        </List>
+            </ButtonGroup>
+        </Box>
     </div>
 }

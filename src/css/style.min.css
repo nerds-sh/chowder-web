@@ -37,8 +37,7 @@ button:focus {
 
 .btn:hover,
 a:hover {
-  text-decoration: none;
-  color: #e22104; }
+  text-decoration: none; }
 
 .btn-icon {
   display: inline-flex;
@@ -49,7 +48,6 @@ a:hover {
 
 .boxed-page {
   position: relative;
-  border-color: #ededed;
   background-color: #fff; }
   .boxed-page .section-padding {
     padding-top: 65px;
@@ -341,8 +339,7 @@ a:hover {
   padding-left: 12px; }
 
 #selectPerson + .select2-container .select2-selection--single {
-  height: 38px;
-  border: 1px solid #ced4da; }
+  height: 38px; }
 
 #selectPerson + .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 36px; }

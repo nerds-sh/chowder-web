@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client'
-import { from } from 'rxjs'
+import {from, map} from 'rxjs'
 import { client } from '../../index'
 
 const GET_USER = gql`
@@ -12,3 +12,4 @@ const GET_USER = gql`
 export const getUser = () => from(client().mutate({
     mutation: GET_USER
 }))
+    .pipe(map(response => response.data))

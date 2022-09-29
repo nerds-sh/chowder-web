@@ -1,4 +1,4 @@
-import { from } from 'rxjs'
+import {from, map} from 'rxjs'
 import { gql } from '@apollo/client'
 import { client } from '../../index'
 
@@ -17,3 +17,4 @@ export const getCategories = ({ payload }) => from(client().query({
         query: GET_CATEGORIES,
         variables: {parameter: payload}
     }))
+    .pipe(map(response => response.data))

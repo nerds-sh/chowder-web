@@ -7,7 +7,7 @@ export const getCategories = actions$ => actions$
     .pipe(ofType(actions.attempt))
     .pipe(mergeMap(execute))
 
-const execute = () => repository.getCategories()
+const execute = payload => repository.getCategories(payload)
     .pipe(mergeMap(success))
     .pipe(catchError(failure))
 

@@ -1,4 +1,19 @@
-import { of } from 'rxjs'
-import data from './categories.json'
+import { from } from 'rxjs'
+import { gql } from '@apollo/client'
+import { client } from '../../index'
 
-export const getCategories = () => of(data)
+const GET_CATEGORIES = gql`
+    query($parameter: FoodCategoryWhereInput) {
+        foodCategories(where: $parameter) {
+            restaurant{
+                name
+            }
+            id
+            name
+        }
+    }
+`
+export const getCategories = ({ payload }) => from(client().query({
+        query: GET_CATEGORIES,
+        variables: {parameter: payload}
+    }))

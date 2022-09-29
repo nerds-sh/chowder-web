@@ -8,16 +8,13 @@ const initialState = {
 
 const attempt = (state, { payload }) => ({...state, attempt: payload})
 
-const success = (state, { payload }) => {
-    console.log('payyyy', payload)
-    return ({...state, data: payload})
-}
+const success = (state, { payload }) => ({ ...state, data: payload })
 
 const failure = (state, { payload }) => ({ ...state, errors: payload })
 
-export const getCategoriesSlice = createSlice({
+export const getUserSlice = createSlice({
     initialState,
-    name: 'getCategories',
+    name: 'getUser',
     reducers: {
         attempt,
         success,
@@ -25,4 +22,4 @@ export const getCategoriesSlice = createSlice({
     },
 })
 
-export const { actions } = getCategoriesSlice
+export const { actions } = getUserSlice

@@ -1,15 +1,17 @@
 import {Box, Button, Grid, Typography} from '@material-ui/core'
 import { RadioGroupRating } from './reviews'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useCallback } from 'react'
 import { actions } from './slices/create-review'
 import { Field, Form, Formik } from 'formik'
 import { SeeReviews } from './see-reviews'
 import { Behaviour } from './behaviour'
 import { get } from 'lodash'
+import {useRestaurantId} from "../menu/hooks/use-restaurant-id";
 
 const useCreateReview = () => {
     const dispatch = useDispatch()
+    const restaurantId = useRestaurantId()
     
     return useCallback(values => {
         dispatch(actions.attempt({ username: values.userName,
@@ -17,7 +19,7 @@ const useCreateReview = () => {
             text: values.text,
             restaurant: {
                 connect: {
-                    id: "cl8ncnvio0273byyf5uuzveaa"
+                    id: `${restaurantId}`
                 }
             }}))
     }, [dispatch])

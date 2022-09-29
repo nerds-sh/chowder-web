@@ -1,5 +1,5 @@
 import { client } from '../../index'
-import { from } from 'rxjs'
+import { from, map } from 'rxjs'
 import {gql} from '@apollo/client'
 
 const GET_RESTAURANT = gql`
@@ -24,3 +24,4 @@ export const getRestaurant = ({ payload }) => from(client().query({
     query: GET_RESTAURANT,
     variables: { parameter: payload } 
 }))
+.pipe(map(response => response.data))

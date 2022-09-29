@@ -13,12 +13,13 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {useNavigate, useParams} from "react-router-dom";
 
 export const Ar = () => {
-    const { objectPath } = useParams();
+    const { restaurantName, objectPath } = useParams();
     let loader = new GLTFLoader();
     let scene, camera, arToolkitContext, arMarkerControls, renderer, arToolkitProfile, arToolkitSource, onRenderFcts
-    const url = `../assets/${objectPath}/scene.glb`
+    const url = `../../assets/${objectPath}/scene.glb`
     const navigate = useNavigate()
     let error = false
+    
     
     useEffect(() => {
         loader.load(url, (gltf) => {
@@ -156,7 +157,7 @@ export const Ar = () => {
             })
         }, () => null, () => {
             error = true
-            navigate("/menu")
+            navigate(`/${restaurantName}/menu`)
         });
         
         const html = document.getElementsByTagName('html')[0]

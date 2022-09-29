@@ -5,23 +5,23 @@ import { Review } from './review'
 import {Contact} from "./contact";
 
 export const allRoutes = [{
-        path: '/',
+        path: '/:restaurantName',
         element: Home,
     },
     {
-        path: '/menu',
+        path: '/:restaurantName/menu',
         element: Menu,
     },
     {
-        path: '/ar/:objectPath',
+        path: '/:restaurantName/ar/:objectPath',
         element: Ar
     },
     {
-        path: '/review',
+        path: '/:restaurantName/review-us',
         element: Review,
     },
     {
-        path: '/contact-us',
+        path: '/:restaurantName/contact-us',
         element: Contact,
     }
 ]

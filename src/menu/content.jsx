@@ -1,8 +1,6 @@
 import { Category } from './category'
 import { Details } from './details'
 import { useCategories } from './hooks/use-categories'
-import {Button} from "@material-ui/core";
-import {Link} from "react-router-dom";
 
 export const Content = () => {
     const categories = useCategories()

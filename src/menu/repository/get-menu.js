@@ -11,6 +11,7 @@ query($parameter: FoodWhereInput) {
         id
         name
         price
+        ingredients
         photo {
             url
         }

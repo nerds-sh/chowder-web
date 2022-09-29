@@ -4,7 +4,7 @@ import { useMenu } from './hooks/use-menu'
 
 export const Details = ({ category }) => {
     const menu = useMenu()
-    const categoryMenu = menu.filter(item => item.category === category)
+    const categoryMenu = menu.filter(item => item.category === category.name)
 
     return categoryMenu.map(item => <div className="menus d-flex align-items-center" style={{ backgroundColor: 'lightgreen', paddingTop: 15 }}>
         <div className="menu-img rounded-circle">

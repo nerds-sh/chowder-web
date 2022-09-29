@@ -8,7 +8,10 @@ const initialState = {
 
 const attempt = (state, { payload }) => ({...state, attempt: payload})
 
-const success = (state, { payload }) => ({ ...state, data: payload })
+const success = (state, { payload }) => {
+    console.log('payyyy', payload)
+    return ({...state, data: payload})
+}
 
 const failure = (state, { payload }) => ({ ...state, errors: payload })
 

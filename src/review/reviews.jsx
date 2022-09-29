@@ -7,6 +7,7 @@ import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied'
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined'
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied'
+import {useFormikContext} from 'formik'
 
 const StyledRating = styled(Rating)(({ theme }) => ({
     '& .MuiRating-iconEmpty .MuiSvgIcon-root': {
@@ -46,13 +47,16 @@ IconContainer.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
-export default function RadioGroupRating() {
+export const RadioGroupRating = () => {
+    const formik = useFormikContext()
+
     return (
         <StyledRating
-            name="highlight-selected-only"
+            name="rate"
             defaultValue={2}
             IconContainerComponent={IconContainer}
             getLabelText={(value) => customIcons[value].label}
+            onChange={(event, value) => formik.setFieldValue('rate', value)}
             highlightSelectedOnly
         />
     );

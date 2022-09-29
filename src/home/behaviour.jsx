@@ -8,7 +8,7 @@ export const Behaviour = () => {
     
     useEffect(() => {
         dispatch(actions.attempt())
-        dispatch(restaurantActions.attempt())
+        dispatch(restaurantActions.attempt({ name: { equals: "nerds.sh" }}))
     })
 
     return ''

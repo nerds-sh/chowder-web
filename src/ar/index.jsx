@@ -12,6 +12,7 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 export const Ar = () => {
 
     let loader = new GLTFLoader();
+    let scene
 
     useEffect(() => {
         loader.load('./assets/scene.glb', (gltf) => {
@@ -30,7 +31,7 @@ export const Ar = () => {
             const onRenderFcts = [];
             let arToolkitContext, arMarkerControls;
 
-            const scene = new THREE.Scene();
+            scene = new THREE.Scene();
 
             const camera = new THREE.Camera();
             scene.add(camera);
@@ -159,6 +160,7 @@ export const Ar = () => {
         
         return () => {
             html.classList.remove('stop-scrolling')
+            scene.dispose()
         } 
     }, [loader])
 

@@ -1,6 +1,7 @@
 import { Menu } from './menu'
 import { Home } from './home'
 import { Ar } from './ar'
+import { Review } from './review'
 
 export const allRoutes = [{
         path: '/',
@@ -13,5 +14,9 @@ export const allRoutes = [{
     {
         path: '/ar',
         element: Ar
+    },
+    {
+        path: '/review',
+        element: Review,
     }
 ]

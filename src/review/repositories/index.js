@@ -1,4 +1,4 @@
-import { from } from 'rxjs'
+import { from, map } from 'rxjs'
 import { client } from '../../index'
 import {gql} from '@apollo/client'
 
@@ -11,10 +11,9 @@ const CREATE_REVIEW = gql`
       }
     }
 `
-export const createReview = ({ payload }) => {
-    console.log('payload', payload)
-    return from(client().mutate({
+export const createReview = ({ payload }) =>
+    from(client().mutate({
         mutation: CREATE_REVIEW,
         variables: {input: payload}
     }))
-}
+.pipe(map(response => response.data))

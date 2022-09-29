@@ -10,6 +10,9 @@ const GET_RESTAURANT = gql`
             photo {
                 url
             }
+            banner {
+                url
+            }
         }
     }
 `

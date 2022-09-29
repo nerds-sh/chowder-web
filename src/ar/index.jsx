@@ -10,14 +10,18 @@ import {
 } from '@ar-js-org/ar.js/three.js/build/ar-threex.js';
 import * as THREE from 'three';
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import {useNavigate, useParams} from "react-router-dom";
 
 export const Ar = () => {
-
+    const { objectPath } = useParams();
     let loader = new GLTFLoader();
     let scene, camera, arToolkitContext, arMarkerControls, renderer, arToolkitProfile, arToolkitSource, onRenderFcts
-
+    const url = `../assets/${objectPath}/scene.glb`
+    const navigate = useNavigate()
+    let error = false
+    
     useEffect(() => {
-        loader.load('./assets/scene.glb', (gltf) => {
+        loader.load(url, (gltf) => {
             ArToolkitContext.baseURL = './'
             renderer = new THREE.WebGLRenderer({
                 alpha: true
@@ -150,23 +154,28 @@ export const Ar = () => {
                     onRenderFct(deltaMsec / 1000, nowMsec / 1000)
                 })
             })
+        }, () => null, () => {
+            error = true
+            navigate("/menu")
         });
         
         const html = document.getElementsByTagName('html')[0]
         html.classList.add('stop-scrolling')
         
         return () => {
-            html.classList.remove('stop-scrolling')
-            onRenderFcts = []
-            arToolkitSource.dispose()
-            arMarkerControls.dispose()
-            arToolkitContext.dispose()
-            renderer.dispose()
-            document.body.removeChild(renderer.domElement)
-            window.removeEventListener("touchstart", () => null)
-            window.removeEventListener("touchmove", () => null)
-            window.removeEventListener("touchend", () => null)
-            window.removeEventListener("resize", () => null)
+            if(!error) {
+                html.classList.remove('stop-scrolling')
+                onRenderFcts = []
+                arToolkitSource.dispose()
+                arMarkerControls.dispose()
+                arToolkitContext.dispose()
+                renderer.dispose()
+                document.body.removeChild(renderer.domElement)
+                window.removeEventListener("touchstart", () => null)
+                window.removeEventListener("touchmove", () => null)
+                window.removeEventListener("touchend", () => null)
+                window.removeEventListener("resize", () => null)
+            }
         } 
     }, [loader])
 

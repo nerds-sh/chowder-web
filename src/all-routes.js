@@ -12,7 +12,7 @@ export const allRoutes = [{
         element: Menu,
     },
     {
-        path: '/ar',
+        path: '/ar/:objectPath',
         element: Ar
     },
     {

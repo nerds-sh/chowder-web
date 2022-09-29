@@ -1,3 +1,5 @@
+/* eslint react-hooks/exhaustive-deps : 0 */
+
 import React, {useEffect} from 'react'
 import '../App.css'
 import {
@@ -12,12 +14,12 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 export const Ar = () => {
 
     let loader = new GLTFLoader();
-    let scene
+    let scene, camera, arToolkitContext, arMarkerControls, renderer, arToolkitProfile, arToolkitSource, onRenderFcts
 
     useEffect(() => {
         loader.load('./assets/scene.glb', (gltf) => {
             ArToolkitContext.baseURL = './'
-            const renderer = new THREE.WebGLRenderer({
+            renderer = new THREE.WebGLRenderer({
                 alpha: true
             });
             renderer.setClearColor(new THREE.Color('lightgrey'), 0)
@@ -28,17 +30,16 @@ export const Ar = () => {
             renderer.domElement.style.left = '0px'
             document.body.appendChild(renderer.domElement);
 
-            const onRenderFcts = [];
-            let arToolkitContext, arMarkerControls;
+            onRenderFcts = [];
 
             scene = new THREE.Scene();
 
-            const camera = new THREE.Camera();
+            camera = new THREE.Camera();
             scene.add(camera);
-            const artoolkitProfile = new ArToolkitProfile()
-            artoolkitProfile.sourceWebcam()
+            arToolkitProfile = new ArToolkitProfile()
+            arToolkitProfile.sourceWebcam()
 
-            const arToolkitSource = new ArToolkitSource(artoolkitProfile.sourceParameters)
+            arToolkitSource = new ArToolkitSource(arToolkitProfile.sourceParameters)
 
             arToolkitSource.init(function onReady() {
                 initARContext();
@@ -134,10 +135,6 @@ export const Ar = () => {
                 isMoving = false
             })
             
-            onRenderFcts.push(() =>{
-                
-            })
-            
             onRenderFcts.push(() => {
                 renderer.render(scene, camera);
                 arToolkitContext && onResize()
@@ -160,7 +157,16 @@ export const Ar = () => {
         
         return () => {
             html.classList.remove('stop-scrolling')
-            scene.dispose()
+            onRenderFcts = []
+            arToolkitSource.dispose()
+            arMarkerControls.dispose()
+            arToolkitContext.dispose()
+            renderer.dispose()
+            document.body.removeChild(renderer.domElement)
+            window.removeEventListener("touchstart", () => null)
+            window.removeEventListener("touchmove", () => null)
+            window.removeEventListener("touchend", () => null)
+            window.removeEventListener("resize", () => null)
         } 
     }, [loader])
 

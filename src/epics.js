@@ -1,5 +1,5 @@
 import { combineEpics } from 'redux-observable'
 import { getFood } from './menu/epics'
-import { createReview } from './review/epics'
+import { review } from './review/epics'
 
-export const rootEpic = combineEpics(getFood, createReview)
+export const rootEpic = combineEpics(getFood, review)

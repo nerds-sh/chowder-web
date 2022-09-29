@@ -1,4 +1,5 @@
 import { combineEpics } from 'redux-observable'
 import { create } from './create'
+import { getReviews } from './get-reviews'
 
-export const createReview = combineEpics(create)
+export const review = combineEpics(create, getReviews)

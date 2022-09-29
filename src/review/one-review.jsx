@@ -7,7 +7,7 @@ export const OneReview = ({ review }) => <Box pt={1} pb={1} style={{ marginBotto
             <div>{review.username}</div>
         </Grid>
         <Grid item xs={6}>
-            <div>{ customIcons[review.rate].icon }</div>
+            {review.rate && <div>{ customIcons[review.rate].icon }</div>}
         </Grid>
     </Grid>
 </Box>

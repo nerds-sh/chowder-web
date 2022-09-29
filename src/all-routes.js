@@ -2,6 +2,7 @@ import { Menu } from './menu'
 import { Home } from './home'
 import { Ar } from './ar'
 import { Review } from './review'
+import {Contact} from "./contact";
 
 export const allRoutes = [{
         path: '/',
@@ -18,5 +19,9 @@ export const allRoutes = [{
     {
         path: '/review',
         element: Review,
+    },
+    {
+        path: '/contact-us',
+        element: Contact,
     }
 ]

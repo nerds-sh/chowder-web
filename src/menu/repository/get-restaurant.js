@@ -13,6 +13,9 @@ const GET_RESTAURANT = gql`
             banner {
                 url
             }
+            phone
+            email
+            address
         }
     }
 `

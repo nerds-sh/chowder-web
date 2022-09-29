@@ -9,7 +9,6 @@ export const Content = () => {
 
     return <div className="row" style={{justifyContent: 'center'}}>
         <div className="col-lg-4 menu-wrap">
-            <Button variant="outlined" component={Link} to='/ar'>See 3D</Button>
             {
                 categories.map(category => <>
                         <Category category={category} />

@@ -15,7 +15,7 @@ const StyledRating = styled(Rating)(({ theme }) => ({
     },
 }));
 
-const customIcons = {
+export const customIcons = {
     1: {
         icon: <SentimentVeryDissatisfiedIcon color="error" />,
         label: 'Very Dissatisfied',

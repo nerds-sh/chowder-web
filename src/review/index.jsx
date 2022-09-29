@@ -1,9 +1,12 @@
 import {Box, Button, Grid, Typography} from '@material-ui/core'
 import { RadioGroupRating } from './reviews'
-import { useDispatch } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { useCallback } from 'react'
 import { actions } from './slices/create-review'
 import { Field, Form, Formik } from 'formik'
+import { SeeReviews } from './see-reviews'
+import { Behaviour } from './behaviour'
+import { get } from 'lodash'
 
 const useCreateReview = () => {
     const dispatch = useDispatch()
@@ -26,8 +29,9 @@ const initialValues = {
     text: null
 }
 
-export const Review = () => {
-    return <Formik initialValues={initialValues} onSubmit={useCreateReview()}>
+export const Review = () => <>
+    <Behaviour />
+    <Formik initialValues={initialValues} onSubmit={useCreateReview()}>
       <Form>
         <h2 style={{ marginTop: 40 }}>Leave us your opinion.</h2>
         <Box style={{ marginTop: 100 }}>
@@ -43,4 +47,5 @@ export const Review = () => {
         </Box>
       </Form>
     </Formik>
-}
+   <SeeReviews />
+</>

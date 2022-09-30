@@ -48,11 +48,9 @@ export const Ar = () => {
 
             arToolkitSource.init(function onReady() {
                 initARContext();
-                onResize()
             })
 
             window.addEventListener('resize', function () {
-                onResize()
             })
 
             const onResize = () => {
@@ -65,7 +63,7 @@ export const Ar = () => {
 
             const initARContext = () => { 
                 arToolkitContext = new ArToolkitContext({
-                    cameraParametersUrl: ArToolkitContext.baseURL + '../data/camera_para.dat',
+                    cameraParametersUrl: ArToolkitContext.baseURL + '../../data/camera_para.dat',
                     detectionMode: 'mono'
                 })
                 arToolkitContext.init(() => { 
@@ -79,7 +77,7 @@ export const Ar = () => {
                 })
                 arMarkerControls = new ArMarkerControls(arToolkitContext, camera, {
                     type: 'pattern',
-                    patternUrl: ArToolkitContext.baseURL + '../data/patt.hiro',
+                    patternUrl: ArToolkitContext.baseURL + '../../data/patt.hiro',
                     changeMatrixMode: 'cameraTransformMatrix'
                 })
 
@@ -121,7 +119,7 @@ export const Ar = () => {
             window.addEventListener("touchstart", (e) => {
                startX = e.changedTouches[0].clientX
                startY = e.changedTouches[0].clientY
-               isMoving = true 
+               isMoving = true
             })
             
             window.addEventListener("touchmove", (e) => {
@@ -133,7 +131,7 @@ export const Ar = () => {
                 }
             }) 
             
-            window.addEventListener("touchend", () => {
+            window.addEventListener("touchend", (e) => {
                 clientX = gltf.scene.rotation.z
                 clientY = gltf.scene.rotation.x
                 

@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
 import {ApolloClient, InMemoryCache} from '@apollo/client'
 
 export const client = () => new ApolloClient({
-    uri: 'http://84.232.145.86:5001/api/graphql',
+    uri: 'http://localhost:5001/api/graphql',
     cache: new InMemoryCache(),
 })
 
